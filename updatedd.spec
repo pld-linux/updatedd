@@ -1,14 +1,13 @@
 Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
-Version:	1.7
+Version:	1.8
 Release:	1
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
-Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}-%{version}.tar.gz
-# Source0-md5:	5b0c4ce09da203dbe28a7318aed3c7f3
-Patch0:		%{name}-config.patch
+Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}-1.tar.gz
+# Source0-md5:	15d59db0fd708d66f241f1ffa818b5be
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,7 +25,6 @@ do uruchamiania updatedd przez demona ppp.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__autoconf}
@@ -36,10 +34,12 @@ do uruchamiania updatedd przez demona ppp.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{{%{_sysconfdir},%{_libdir}}/%{name},%{_sbindir}}
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
-install bin/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}
-install bin/updatedd $RPM_BUILD_ROOT%{_sbindir}
+install src/plugins/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}
+install src/updatedd $RPM_BUILD_ROOT%{_sbindir}
 install Documentation/rc_updatedd* $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+install Documentation/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 ln -s %{_libdir}/%{name}/dyndns.so $RPM_BUILD_ROOT%{_libdir}/%{name}/default.so
 
 %clean
@@ -48,8 +48,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %lang(de) %doc Documentation/README.german
+%doc Documentation/README.english debian/changelog
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(700,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_sbindir}/*
-%dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*
+%{_mandir}/man1/*
+%dir %{_libdir}/%{name}
