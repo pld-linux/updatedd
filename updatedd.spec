@@ -14,6 +14,7 @@ Vendor:		Philipp Benner <philipp@philippb.tk>
 Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}-%{sub_ver}.tar.gz
 # Source0-md5:	edd6bb77c0758dd60f5947ef5cd670e9
 Patch0:		%{name}-config.patch
+URL:		http://updatedd.philipp-benner.de/
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS debian/changelog debian/README.debian
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
-%attr(700,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
+%attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}/*
 %attr(755,root,root) %{_datadir}/%{name}/*
