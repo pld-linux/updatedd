@@ -1,5 +1,5 @@
-Summary:	Program allows you change ip on dyndns
-Summary(pl):	Program do zmiany ip w dyndns
+Summary:	Program that allows you IP change on dyndns
+Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
 Version:	1.7
 Release:	1
@@ -13,14 +13,16 @@ BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This client supports dyndns/statdns/custom, backmx, mx host, wildcard,
+This client supports dyndns/statdns/custom, backmx, MX host, wildcard,
 offline mode and sysloging. It uses the web based IP detection and a
 script is included which can be used to run updatedd by the ppp
-daemon. Ovh.net, ods.org, no-ip.org and hn.org are also supported
+daemon. Ovh.net, ods.org, no-ip.org and hn.org are also supported.
 
 %description -l pl
-Program do automatycznego aktualizowania ip w systemie dynamicznych
-domen dyndns.org, Ovh.net, ods.org, no-ip.org, hn.org
+Program do automatycznego aktualizowania IP w systemie dynamicznych
+domen dyndns.org, Ovh.net, ods.org, no-ip.org, hn.org . Korzysta z
+opartego na WWW sprawdzania adresu IP. Do³±czony jest skrypt s³u¿acy
+do uruchamiania updatedd przez demona ppp. 
 
 %prep
 %setup -q
@@ -44,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Documentation/README.german
+%lang(de) %doc Documentation/README.german
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_sbindir}/*
