@@ -36,6 +36,7 @@ do uruchamiania updatedd przez demona ppp.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{{%{_sysconfdir},%{_libdir}}/%{name},%{_sbindir}}
+
 install bin/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}
 install bin/updatedd $RPM_BUILD_ROOT%{_sbindir}
 install Documentation/rc_updatedd* $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
@@ -50,4 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_sbindir}/*
+%dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*
