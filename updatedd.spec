@@ -1,15 +1,13 @@
 Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
-%define 	sub_ver 1
-%define		_ver	2.2
-Version:	%{_ver}_%{sub_ver}
+Version:	2.3
 Release:	1
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
-Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{_ver}-%{sub_ver}.tar.gz
-# Source0-md5:	3d28fafc94690fd0396f6e813563dce4
+Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}.tar.gz
+# Source0-md5:	eef61a9238bb1a0964c88743a0438a20
 Patch0:		%{name}-config.patch
 URL:		http://updatedd.philipp-benner.de/
 BuildRequires:	autoconf
@@ -30,7 +28,7 @@ sprawdzania adresu IP. Do³±czony jest skrypt s³u¿±cy do uruchamiania
 updatedd przez demona ppp.
 
 %prep
-%setup -q -n %{name}-%{_ver}
+%setup -q
 %patch0 -p1
 
 %build
@@ -63,7 +61,8 @@ echo
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS debian/changelog debian/README.debian Documentation/updatedd-pppd-rc
+%doc AUTHORS Documentation/updatedd-pppd-rc Documentation/updatedd-2.3-english.pdf
+%lang(de) %doc Documentation/updatedd-2.3-german.pdf
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
