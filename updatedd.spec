@@ -1,13 +1,14 @@
 Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
-Version:	1.8
-Release:	1
+Version:	1.9
+%define 	sub_ver 2
+Release:	%{sub_ver}.1
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
-Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}-1.tar.gz
-# Source0-md5:	15d59db0fd708d66f241f1ffa818b5be
+Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}-%{sub_ver}.tar.gz
+# Source0-md5:	a2bc8d2f6fca42764fed6c358243e5ce
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %lang(de) %doc Documentation/README.german
+%lang(fr) %doc Documentation/README.french
 %doc Documentation/README.english debian/changelog
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(700,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
