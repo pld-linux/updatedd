@@ -1,5 +1,5 @@
-Summary:	updatedd program allows you change ip on dyndns
-Summary(pl):	updatedd program do zmiany ip w dyndns
+Summary:	Program allows you change ip on dyndns
+Summary(pl):	Program do zmiany ip w dyndns
 Name:		updatedd
 Version:	1.7
 Release:	1
@@ -11,8 +11,6 @@ Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}-%{version}.tar.g
 Patch0:		%{name}-config.patch
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		etc	 /etc/updatedd
 
 %description
 This client supports dyndns/statdns/custom, backmx, mx host, wildcard,
@@ -47,6 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Documentation/README.german
-%attr(700,root,root) %{_sysconfdir}/%{name}
+%attr(700,root,root) %dir %{_sysconfdir}/%{name}
+%attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_sbindir}/*
-%{_libdir}/%{name}/*
+%attr(755,root,root) %{_libdir}/%{name}/*
