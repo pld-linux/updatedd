@@ -1,7 +1,7 @@
 diff -Nur old/libexception_handle/Makefile.in new/libexception_handle/Makefile.in
 --- old/libexception_handle/Makefile.in	2004-05-04 11:56:34.000000000 +0000
-+++ new/libexception_handle/Makefile.in	2004-07-29 14:55:15.000000000 +0000
-@@ -16,8 +16,8 @@
++++ new/libexception_handle/Makefile.in	2004-07-29 16:32:54.000000000 +0000
+@@ -16,12 +16,11 @@
  # along with this program; if not, write to the Free Software
  # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  
@@ -10,5 +10,10 @@ diff -Nur old/libexception_handle/Makefile.in new/libexception_handle/Makefile.i
 +libdir = @libdir@
 +CC = @CC@
  AR = ar
- MARCH = $(shell uname -m)
+-MARCH = $(shell uname -m)
  WCFLAGS = -Wall -Wstrict-prototypes -Wno-trigraphs -pedantic
+-CFLAGS = $(WCFLAGS) -I../include -O2 -fomit-frame-pointer -fno-strict-aliasing -fno-common -fPIC -march=$(MARCH) @CFLAGS@
++CFLAGS = $(WCFLAGS) -I../include -fomit-frame-pointer -fno-strict-aliasing -fno-common -fPIC @CFLAGS@
+ 
+ OBJECTS = libexception_handle.o
+ TARGET = libexception_handle.a
