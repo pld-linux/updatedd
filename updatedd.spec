@@ -1,7 +1,3 @@
-#
-#	TODO:
-#		- trigger for update from versions < 2.0
-#
 Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
@@ -27,7 +23,7 @@ no-ip.com, ods.org, ovh.com, regfish.com, tzo.com.
 
 %description -l pl
 Program do automatycznego aktualizowania IP w systemie dynamicznych
-domen  changeip.com, dyndns.org, eurodyndns.org hn.org, no-ip.com,
+domen changeip.com, dyndns.org, eurodyndns.org hn.org, no-ip.com,
 ods.org, ovh.com, regfish.com, tzo.com. Korzysta z opartego na WWW
 sprawdzania adresu IP. Do³±czony jest skrypt s³u¿acy do uruchamiania
 updatedd przez demona ppp.
@@ -58,6 +54,12 @@ install src/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%triggerin -- updatedd < 2.0
+echo
+echo Configuration files has changed to %{_sysconfdir}/updatedd-wrapper.conf
+echo You may run the program by typing %{_bindir}/updatedd-wrapper
+echo
 
 %files
 %defattr(644,root,root,755)
