@@ -26,7 +26,7 @@ no-ip.com, ods.org, ovh.com, regfish.com, tzo.com.
 Program do automatycznego aktualizowania IP w systemie dynamicznych
 domen changeip.com, dyndns.org, eurodyndns.org hn.org, no-ip.com,
 ods.org, ovh.com, regfish.com, tzo.com. Korzysta z opartego na WWW
-sprawdzania adresu IP. Do³±czony jest skrypt s³u¿acy do uruchamiania
+sprawdzania adresu IP. Do³±czony jest skrypt s³u¿±cy do uruchamiania
 updatedd przez demona ppp.
 
 %prep
