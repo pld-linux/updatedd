@@ -2,16 +2,15 @@ Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
 %define 	sub_ver 1
-%define		_ver	2.1
+%define		_ver	2.2
 Version:	%{_ver}_%{sub_ver}
-Release:	2
+Release:	1
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
 Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{_ver}-%{sub_ver}.tar.gz
-# Source0-md5:	07244db30ecb3c551f0477b2e3f5fce0
+# Source0-md5:	3d28fafc94690fd0396f6e813563dce4
 Patch0:		%{name}-config.patch
-Patch1:		%{name}-amd64.patch
 URL:		http://updatedd.philipp-benner.de/
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,7 +32,6 @@ updatedd przez demona ppp.
 %prep
 %setup -q -n %{name}-%{_ver}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__autoconf}
