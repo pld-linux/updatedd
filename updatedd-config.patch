@@ -1,28 +1,28 @@
 diff -Nur old/updatedd-wrapper/updatedd-wrapper new/updatedd-wrapper/updatedd-wrapper
---- old/updatedd-wrapper/updatedd-wrapper	2004-03-30 18:48:35.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper	2004-06-03 12:58:42.000000000 +0000
+--- old/updatedd-wrapper/updatedd-wrapper	2004-05-31 13:38:56.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper	2004-07-26 23:19:14.000000000 +0000
 @@ -25,7 +25,7 @@
  
  use constant WRAPPER_NAME	=> $0;
  use constant UPDATEDD_NAME	=> "updatedd";
 -use constant CONFIG_FILE_1	=> "/etc/updatedd-wrapper.conf";
 +use constant CONFIG_FILE_1	=> "/etc/updatedd/updatedd-wrapper.conf";
- use constant CONFIG_FILE_2	=> "/usr/local/etc/updatedd-wrapper.conf";
+ use constant CONFIG_FILE_2	=> "/usr/etc/updatedd-wrapper.conf";
+ use constant CONFIG_FILE_3	=> "/usr/local/etc/updatedd-wrapper.conf";
  use constant CACHE_FILE		=> "/tmp/updatedd-wrapper_".$<.".cache";
- use constant CACHE_FILE_PERM	=> 0600;
 diff -Nur old/updatedd-wrapper/updatedd-wrapper.1 new/updatedd-wrapper/updatedd-wrapper.1
---- old/updatedd-wrapper/updatedd-wrapper.1	2004-03-29 18:27:13.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper.1	2004-06-03 09:22:02.000000000 +0000
-@@ -13,7 +13,7 @@
- .TP
- .B \-c <path>
- Use an alternative configuration file.
--By default /etc/updatedd-wrapper.conf or
-+By default /etc/updatedd/updatedd-wrapper.conf or
- /usr/local/etc/updatedd-wrapper.conf will be used.
- .TP
- .B \-f
-@@ -56,7 +56,7 @@
+--- old/updatedd-wrapper/updatedd-wrapper.1	2004-04-07 22:50:35.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper.1	2004-07-26 23:20:55.000000000 +0000
+@@ -16,7 +16,7 @@
+ .br
+ Defaults:
+ .br
+-/etc/updatedd-wrapper.conf
++/etc/updatedd/updatedd-wrapper.conf
+ .br
+ /usr/etc/updatedd-wrapper.conf
+ .br
+@@ -62,7 +62,7 @@
  NO  warranty;  not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
  PURPOSE.
  .SH "FILES"
@@ -31,103 +31,19 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.1 new/updatedd-wrapper/updatedd-
  .br
  
  /tmp/updatedd-wrapper-<uid>.cache
-diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf new/updatedd-wrapper/updatedd-wrapper.conf
---- old/updatedd-wrapper/updatedd-wrapper.conf	2004-03-29 13:23:51.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper.conf	2004-06-03 09:22:54.000000000 +0000
-@@ -60,7 +60,7 @@
- 
- 	login		= changeip_1;
- 	hostnames	= "test.changeip.org host2.changeip.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl changeip`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl changeip`;
- 	use-syslog	= yes;
- #	options		= "--offline";
- #	force;
-@@ -71,7 +71,7 @@
- 
- 	login		= dyndns_1;
- 	hostnames	= "host1.dyndns.org host2.dyndns.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl dyndns`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl dyndns`;
- 	use-syslog	= yes;
- 	options		= "--with-backmx --wildcard on";
- #	force;
-@@ -82,7 +82,7 @@
- 
- 	login		= eurodyndns_1;
- 	hostnames	= "host1.eurodyndns.org host2.eurodyndns.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl eurodyndns`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl eurodyndns`;
- 	use-syslog	= yes;
- 	options		= "--with-backmx --wildcard on";
- #	force;
-@@ -93,7 +93,7 @@
- 
- 	login		= hn_1;
- 	hostnames	= "host1.hn.org host2.hn.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl hn`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl hn`;
- 	use-syslog	= yes;
- #	force;
- 
-@@ -103,7 +103,7 @@
- 
- 	login		= noip_1;
- 	hostnames	= "host1.noip.org host2.noip.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl noip`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl noip`;
- 	use-syslog	= yes;
- #	force;
- 
-@@ -113,7 +113,7 @@
- 
- 	login		= ods_1;
- 	hostnames	= "host1.ods.org host2.ods.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/interface.pl ppp0`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/interface.pl ppp0`;
- 	use-syslog	= yes;
- #	force;
- 
-@@ -123,7 +123,7 @@
- 
- 	login		= ovh_1;
- 	hostnames	= "host1.org host2.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/interface.pl ppp0`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/interface.pl ppp0`;
- 	use-syslog	= yes;
- #	force;
- 
-@@ -133,7 +133,7 @@
- 
- 	login		= regfish_1;
- 	hostnames	= "host1.org host2.org";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl regfish`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl regfish`;
- 	use-syslog	= yes;
- 	options		= "--ismx";
- #	force;
-@@ -144,7 +144,7 @@
- 
- 	login		= tzo_1;
- 	hostnames	= "host1.tzo.com host2.tzo.com";
--	ip-addr		= ipv4:`/usr/local/share/updatedd/ipserv.pl tzo`;
-+	ip-addr		= ipv4:`/usr/share/updatedd/ipserv.pl tzo`;
- 	use-syslog	= yes;
- #	force;
- 
 diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/updatedd-wrapper.conf.5
---- old/updatedd-wrapper/updatedd-wrapper.conf.5	2004-03-29 18:28:23.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper.conf.5	2004-06-03 09:23:58.000000000 +0000
+--- old/updatedd-wrapper/updatedd-wrapper.conf.5	2004-04-20 14:29:12.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper.conf.5	2004-07-26 23:22:49.000000000 +0000
 @@ -7,7 +7,7 @@
  to execute updatedd.
  .br 
  By default it is at
--.I /etc
-+.I /etc/updatedd
+-.I /etc,
++.I /etc/updatedd,
+ .I /usr/etc
  or
  .I /usr/local/etc.
- 
-@@ -71,7 +71,7 @@
+@@ -73,7 +73,7 @@
  dyndns(active) {
  	login      = dyndns_1;
  	hostnames  = "host1.dyndns.org host2.dyndns.org";
@@ -136,7 +52,7 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/upda
  	use\-syslog = yes;
  	options    = "\-\-with\-backmx \-\-wildcard on";
  #	force;
-@@ -79,7 +79,7 @@
+@@ -81,7 +81,7 @@
  regfish(active) {
  	login      = regfish_1;
  	hostnames  = "host1.org host2.org";
@@ -145,7 +61,7 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/upda
  	use\-syslog = yes;
  	options    = "\-\-ismx";
  #	force;
-@@ -87,20 +87,20 @@
+@@ -89,14 +89,14 @@
  regfish(active) {
  	login      = regfish_2;
  	hostnames  = "host3.org";
@@ -162,10 +78,3 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/upda
  	use\-syslog = yes;
  #	force;
  }
- .fi 
- .SH "FILES"
--etc/updatedd\-wrapper.conf
-+/etc/updatedd/updatedd\-wrapper.conf
- .SH "SEE ALSO"
- Look at /usr/share/doc/updatedd for further documentation
- (distributed by updatedd\-doc) and at /usr/share/updatedd

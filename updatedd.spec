@@ -1,14 +1,14 @@
 Summary:	Program that allows you IP change on dyndns
 Summary(pl):	Program do zmiany IP w dyndns
 Name:		updatedd
-Version:	2.0
+Version:	2.1
 %define 	sub_ver 1
 Release:	%{sub_ver}.1
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
 Source0:	http://dl.sourceforge.net/sourceforge/updatedd/%{name}_%{version}-%{sub_ver}.tar.gz
-# Source0-md5:	edd6bb77c0758dd60f5947ef5cd670e9
+# Source0-md5:	07244db30ecb3c551f0477b2e3f5fce0
 Patch0:		%{name}-config.patch
 URL:		http://updatedd.philipp-benner.de/
 BuildRequires:	autoconf
@@ -49,7 +49,6 @@ install updatedd-wrapper/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install updatedd-wrapper/*.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install updatedd-wrapper/updatedd-wrapper $RPM_BUILD_ROOT%{_bindir}
 install scripts/*.pl $RPM_BUILD_ROOT%{_datadir}/%{name}
-install Documentation/*.pl $RPM_BUILD_ROOT%{_datadir}/%{name}
 install src/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
@@ -63,7 +62,7 @@ echo
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS debian/changelog debian/README.debian
+%doc AUTHORS debian/changelog debian/README.debian Documentation/updatedd-pppd-rc
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
 %attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
