@@ -4,7 +4,7 @@ Name:		updatedd
 %define 	sub_ver 1
 %define		_ver	2.1
 Version:	%{_ver}_%{sub_ver}
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Admin
 Vendor:		Philipp Benner <philipp@philippb.tk>
