@@ -1,18 +1,6 @@
-diff -Nur old/updatedd-wrapper/updatedd-wrapper new/updatedd-wrapper/updatedd-wrapper
---- old/updatedd-wrapper/updatedd-wrapper	2004-05-31 13:38:56.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper	2004-07-26 23:19:14.000000000 +0000
-@@ -25,7 +25,7 @@
- 
- use constant WRAPPER_NAME	=> $0;
- use constant UPDATEDD_NAME	=> "updatedd";
--use constant CONFIG_FILE_1	=> "/etc/updatedd-wrapper.conf";
-+use constant CONFIG_FILE_1	=> "/etc/updatedd/updatedd-wrapper.conf";
- use constant CONFIG_FILE_2	=> "/usr/etc/updatedd-wrapper.conf";
- use constant CONFIG_FILE_3	=> "/usr/local/etc/updatedd-wrapper.conf";
- use constant CACHE_FILE		=> "/tmp/updatedd-wrapper_".$<.".cache";
 diff -Nur old/updatedd-wrapper/updatedd-wrapper.1 new/updatedd-wrapper/updatedd-wrapper.1
---- old/updatedd-wrapper/updatedd-wrapper.1	2004-04-07 22:50:35.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper.1	2004-07-26 23:20:55.000000000 +0000
+--- old/updatedd-wrapper/updatedd-wrapper.1	2005-01-06 19:27:59.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper.1	2005-06-27 17:20:48.000000000 +0000
 @@ -16,7 +16,7 @@
  .br
  Defaults:
@@ -32,8 +20,8 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.1 new/updatedd-wrapper/updatedd-
  
  /tmp/updatedd-wrapper-<uid>.cache
 diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/updatedd-wrapper.conf.5
---- old/updatedd-wrapper/updatedd-wrapper.conf.5	2004-04-20 14:29:12.000000000 +0000
-+++ new/updatedd-wrapper/updatedd-wrapper.conf.5	2004-07-26 23:22:49.000000000 +0000
+--- old/updatedd-wrapper/updatedd-wrapper.conf.5	2005-01-06 19:27:59.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper.conf.5	2005-06-27 17:20:48.000000000 +0000
 @@ -7,7 +7,7 @@
  to execute updatedd.
  .br 
@@ -78,3 +66,15 @@ diff -Nur old/updatedd-wrapper/updatedd-wrapper.conf.5 new/updatedd-wrapper/upda
  	use\-syslog = yes;
  #	force;
  }
+diff -Nur old/updatedd-wrapper/updatedd-wrapper.in new/updatedd-wrapper/updatedd-wrapper.in
+--- old/updatedd-wrapper/updatedd-wrapper.in	2005-02-25 16:02:28.000000000 +0000
++++ new/updatedd-wrapper/updatedd-wrapper.in	2005-06-27 17:26:23.868292208 +0000
+@@ -26,7 +26,7 @@
+ 
+ use constant WRAPPER_NAME	=> $0;
+ use constant UPDATEDD_NAME	=> "updatedd";
+-use constant CONFIG_FILE_1	=> "/etc/updatedd-wrapper.conf";
++use constant CONFIG_FILE_1	=> "/etc/updatedd/updatedd-wrapper.conf";
+ use constant CONFIG_FILE_2	=> "/usr/etc/updatedd-wrapper.conf";
+ use constant CONFIG_FILE_3	=> "/usr/local/etc/updatedd-wrapper.conf";
+ use constant CACHE_FILE		=> "/tmp/updatedd-wrapper_".$<.".cache";
