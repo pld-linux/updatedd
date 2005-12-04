@@ -16,9 +16,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This client supports dyndns/statdns/custom, backmx, MX host, wildcard,
 offline mode and sysloging. It uses the web based IP detection and a
-script is included which can be used to run updatedd by the ppp daemon.
-Supported services: changeip.com, dyndns.org, eurodyndns.org hn.org,
-no-ip.com, ods.org, ovh.com, regfish.com, tzo.com.
+script is included which can be used to run updatedd by the ppp
+daemon. Supported services: changeip.com, dyndns.org, eurodyndns.org
+hn.org, no-ip.com, ods.org, ovh.com, regfish.com, tzo.com.
 
 %description -l pl
 Program do automatycznego aktualizowania IP w systemie dynamicznych
@@ -64,7 +64,7 @@ echo
 %doc AUTHORS Documentation/updatedd-pppd-rc Documentation/updatedd-2.4-english.pdf
 %lang(de) %doc Documentation/updatedd-2.4-german.pdf
 %attr(700,root,root) %dir %{_sysconfdir}/%{name}
-%attr(600,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
+%attr(600,root,root) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}/*
 %attr(755,root,root) %{_datadir}/%{name}/*
