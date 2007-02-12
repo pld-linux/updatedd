@@ -1,5 +1,5 @@
 Summary:	Program that allows you IP change on dyndns
-Summary(pl.UTF-8):   Program do zmiany IP w dyndns
+Summary(pl.UTF-8):	Program do zmiany IP w dyndns
 Name:		updatedd
 Version:	2.5
 Release:	1
