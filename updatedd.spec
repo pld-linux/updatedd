@@ -1,5 +1,5 @@
 Summary:	Program that allows you IP change on dyndns
-Summary(pl):	Program do zmiany IP w dyndns
+Summary(pl.UTF-8):   Program do zmiany IP w dyndns
 Name:		updatedd
 Version:	2.5
 Release:	1
@@ -20,11 +20,11 @@ script is included which can be used to run updatedd by the ppp
 daemon. Supported services: changeip.com, dyndns.org, eurodyndns.org
 hn.org, no-ip.com, ods.org, ovh.com, regfish.com, tzo.com.
 
-%description -l pl
+%description -l pl.UTF-8
 Program do automatycznego aktualizowania IP w systemie dynamicznych
 domen changeip.com, dyndns.org, eurodyndns.org hn.org, no-ip.com,
 ods.org, ovh.com, regfish.com, tzo.com. Korzysta z opartego na WWW
-sprawdzania adresu IP. Do³±czony jest skrypt s³u¿±cy do uruchamiania
+sprawdzania adresu IP. DoÅ‚Ä…czony jest skrypt sÅ‚uÅ¼Ä…cy do uruchamiania
 updatedd przez demona ppp.
 
 %prep
